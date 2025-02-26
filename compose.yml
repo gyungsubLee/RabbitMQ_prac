@@ -1,0 +1,37 @@
+services:
+  my-server:
+    container_name: my-server
+    build: .
+    environment:
+      - RABBITMQ_HOST=my-rabbitmq
+      - RABBITMQ_USER=admin
+      - RABBITMQ_PASS=admin
+    ports:
+      - 8080:8080
+    depends_on:
+      my-rabbitmq:
+        condition: service_healthy
+
+  my-rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:4.0-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq/
+      - rabbitmq-log:/var/log/rabbitmq/
+    restart: unless-stopped
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  rabbitmq-data:
+    name: rabbitmq-data
+  rabbitmq-log:
+    name: rabbitmq-log
