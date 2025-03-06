@@ -38,7 +38,7 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public MessageListenerAdapter listenerAdapter(Consumer receiver) {
-        return new MessageListenerAdapter(receiver, "receiveMessage");
+    public MessageListenerAdapter listenerAdapter(Consumer consumer) {
+        return new MessageListenerAdapter(consumer, "workQueueTask");
     }
 }
