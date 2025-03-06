@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Notifications</title>
+    <link href="css/style.css" rel="stylesheet">  <!-- thymeleaf에서 'static'을 기본 경로로 찾음 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="js/script.js"></script>  <!-- thymeleaf에서 'static'을 기본 경로로 찾음 -->
+</head>
+<body>
+<h1>Notifications</h1>
+<div id="notifications"></div>
+
+<form id="notificationForm">
+    <input type="tel" id="notificationMessage" placeholder="입력하세요" required>
+    <button type="submit">전송</button>
+</form>
+<!--<script th:src="@{/script.js}"></script>-->
+</body>
+</html>

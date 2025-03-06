@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.prac.rabbimq.step2")
+@ComponentScan(basePackages = "com.prac.rabbimq.step3")
 public class RabbimqApplication {
 
 	public static void main(String[] args) {
