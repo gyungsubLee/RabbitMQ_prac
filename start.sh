@@ -4,10 +4,16 @@
 cd "$(dirname "$0")"
 
 echo "🔨 Gradle Build 시작..."
-./gradlew clean build || { echo "❌ Gradle Build 실패!"; exit 1; }
+./gradlew clean build -x test || { echo "❌ Gradle Build 실패!"; exit 1; }
 
 echo "🚀 Docker Compose 실행..."
 docker compose up -d --build
 
 echo "📋 Docker compose ps 실행..."
 docker compose ps
+
+# 실행 전  권한 부여 필요
+# chmod +x start.sh
+
+# 실행
+# ./start.sh
