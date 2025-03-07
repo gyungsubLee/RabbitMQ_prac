@@ -9,17 +9,22 @@
 
 <br/>
 
-### 앱 실행
+### docker compose 실행 (Spring, RabbitMQ)
 
-**Jar 파일 빌드**
 ```bash
-./grable clean build
+# 햅 시작 = gradle build + compose 실행
+./start.sh
 ```
 
-**compose 파일 실행**: Spring, RabbitMQ
+```bash
+# 재실행 = compose 종료 + gradle build + compose 실행
+./restart.sh
+```
+
 
 ```bash
-docker compose up -d --build
+# build 없이 실행
+docker compose up -d
 ```
 
 **compose 종료**
