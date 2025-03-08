@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Notifications</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="js/news.js"></script>
+</head>
+<body>
+<h1>News Sample</h1>
+<p th:text="${message}"></p>
+
+<!-- Select News Type -->
+<label for="newsType">Select News Type:</label>
+<select id="newsType">
+    <option value="topic1">topic1</option>
+    <option value="topic2">topic2</option>
+    <option value="topic3">topic3</option>
+</select>
+<button onclick="connect()">Connect</button>
+
+<div id="news"></div>
+</body>
+</html>
