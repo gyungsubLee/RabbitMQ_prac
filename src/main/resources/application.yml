@@ -2,8 +2,16 @@ spring:
   rabbitmq:
     host: ${RABBITMQ_HOST:localhost}
     port: 5672
-    username: ${RABBITMQ_USER:guest}
-    password: ${RABBITMQ_PASS:guest}
+    username: ${RABBITMQ_USER:admin}
+    password: ${RABBITMQ_PASS:admin}
+    listener:
+      simple:
+        retry:
+          enabled: true # 재시도 활성화
+          initial-interval: 1000 # 첫 재시도 대기 시간 1초
+          max-attempts: 3 # 최대 재시도 횟수
+          max-interval: 1000 #최 시도간 최대 대기시간
+        default-requeue-rejected: false
   application:
     name: rabbitmq
 server:
