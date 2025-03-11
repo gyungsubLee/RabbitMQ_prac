@@ -21,6 +21,7 @@ public class MessageProducer {
     @Transactional
     public void sendMessage(StockReqDto stockReqDto, boolean testCase) {
 
+        // 권장) Bean Vailidation으로 DTO에서 유효성 검사 진행
         if (stockReqDto.getUserId() == null || stockReqDto.getUserId().isEmpty()) {
             log.error("StockReqDto.userId is required");
             throw new RuntimeException("User id is required");
@@ -44,7 +45,7 @@ public class MessageProducer {
             if (correlationData.getFuture().get(5, TimeUnit.SECONDS).isAck()) {
                 System.out.println("[producer correlationData] 성공" + savedStockEntity);
                 savedStockEntity.setProcessed(true);
-                stockRepository.save(savedStockEntity);
+//                stockRepository.save(savedStockEntity);  - Dirty Check 를 통한 자동 업데이트
             } else {
                 throw new RuntimeException("# confirm 실패 - 롤백");
             }
