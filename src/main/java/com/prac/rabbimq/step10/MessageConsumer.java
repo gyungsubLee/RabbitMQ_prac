@@ -28,9 +28,11 @@ public class MessageConsumer {
                                Channel channel) {
         try {
             System.out.println("[Consumer] " + stock);
-//            Thread.sleep(200);
+            Thread.sleep(200);
+
             StockEntityV2 findStock = stockRepository.findByIdOrElseThrow(stock.getId());
 
+            findStock.modifiedUpdatedAt();
             // 업데이트 로직
             stockRepository.save(findStock);
             System.out.println("[Save Entity Consumer] " + findStock);
