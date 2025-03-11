@@ -4,6 +4,7 @@ spring:
     port: 5672
     username: ${RABBITMQ_USER:admin}
     password: ${RABBITMQ_PASS:admin}
+    publisher-confirm-type: correlated # Enable Publisher Confirms
   application:
     name: rabbitmq
   datasource:

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@ComponentScan(basePackages = "com.prac.rabbimq.step9")
+@ComponentScan(basePackages = "com.prac.rabbimq.step10")
 public class RabbimqApplication {
 
 	public static void main(String[] args) {
